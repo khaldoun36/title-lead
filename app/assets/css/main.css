@@ -1,0 +1,282 @@
+@import "tailwindcss";
+
+/*  Customizing the default theme */
+@theme {
+  --text-*: initial;
+  --color-*: initial;
+  --radius-*: initial;
+
+  /*  Colors */
+
+  --white-chalk: hsl(27 33% 96%);
+  --radiant-dawn: hsl(37 38% 93%);
+  --sneezeweeds: hsl(43 89% 58%);
+  --tobiko-orange: hsl(23 85% 48%);
+  --kyuri-green: hsl(76 58% 23%);
+  --blind-forest: hsl(89 100% 10%);
+
+  --dark-rift: hsl(218 53% 5%);
+
+  /*   Semantic Colors */
+  --color-primary-background: var(--white-chalk);
+  --color-secondary-background: var(--radiant-dawn);
+
+  --color-primary: var(--blind-forest);
+  --color-primary-light: var(--kyuri-green);
+  --color-secondary: var(--tobiko-orange);
+  --color-tertiary: var(--sneezeweeds);
+
+  --color-primary-text: var(--dark-rift);
+  --color-secondary-text: color-mix(in hsl, var(--dark-rift) 65%, transparent);
+
+  --color-warning: oklch(57.7% 0.245 27.325);
+
+  --color-white: hsl(0 0% 100%);
+
+  /*  spacing values */
+  --card-padding: 16px;
+  --radius-xl: calc(var(--radius-lg) + var(--card-padding));
+  --radius-lg: calc(var(--radius-base) + var(--card-padding));
+  --radius-base: 8px;
+}
+
+/* Typography */
+@font-face {
+  font-family: "figtree";
+  src: url("/fonts/Figtree-VariableFont_wght.woff2") format("woff2"); /* Adjust path based on your folder */
+  font-weight: 100 900; /* Define the weight range for your variable font */
+  font-display: swap; /* Recommended for better performance */
+}
+
+@utility title-4xl {
+  font-size: 3.5rem;
+  line-height: 4rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+@utility title-3xl {
+  font-size: 3rem;
+  line-height: 3.5rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+@utility title-2xl {
+  font-size: 2.5rem;
+  line-height: 3rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+@utility title-xl {
+  font-size: 2rem;
+  line-height: 2.5rem;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+}
+@utility title-lg {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+@utility title-base {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+/* Label Styles (Inter) */
+@utility label-xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+}
+@utility label-lg {
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+}
+@utility label-md {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 500;
+  letter-spacing: -0.011em;
+}
+@utility label-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  letter-spacing: -0.006em;
+}
+@utility label-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+/* Paragraph Styles (Inter) */
+@utility paragraph-xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+}
+@utility paragraph-lg {
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+}
+@utility paragraph-md {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+  letter-spacing: -0.011em;
+}
+@utility paragraph-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+  letter-spacing: -0.006em;
+}
+@utility paragraph-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+/* Subheading Styles (Inter) */
+@utility subheading-md {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+@utility subheading-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+@utility subheading-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+@utility subheading-2xs {
+  font-size: 0.6875rem;
+  line-height: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* General */
+@utility ds-border {
+  --shade: hsl(from var(--base) calc(h + 8) 25 calc(l - 5));
+  --perfect-shadow:
+    0 0 0 1px var(--base), 0 1px 1px -0.5px var(--shade),
+    0 3px 3px -1.5px var(--shade), 0 6px 6px -3px var(--shade),
+    0 12px 12px -6px var(--base), 0 24px 24px -12px var(--base);
+
+  /* general */
+  border: 1.5px solid color-mix(in hsl, var(--dark-rift) 10%, transparent);
+  box-shadow: var(--perfect-shadow);
+}
+@utility ds-border-b {
+  --shade: hsl(from var(--base) calc(h + 8) 25 calc(l - 5));
+  --perfect-shadow:
+    0 0 0 1px var(--base), 0 1px 1px -0.5px var(--shade),
+    0 3px 3px -1.5px var(--shade), 0 6px 6px -3px var(--shade),
+    0 12px 12px -6px var(--base), 0 24px 24px -12px var(--base);
+
+  /* general */
+  border-bottom: 1.5px solid
+    color-mix(in hsl, var(--dark-rift) 10%, transparent);
+  box-shadow: var(--perfect-shadow);
+}
+@utility ds-border-t {
+  --shade: hsl(from var(--base) calc(h + 8) 25 calc(l - 5));
+  --perfect-shadow:
+    0 0 0 1px var(--base), 0 1px 1px -0.5px var(--shade),
+    0 3px 3px -1.5px var(--shade), 0 6px 6px -3px var(--shade),
+    0 12px 12px -6px var(--base), 0 24px 24px -12px var(--base);
+
+  /* general */
+  border-top: 1.5px solid color-mix(in hsl, var(--dark-rift) 10%, transparent);
+  box-shadow: var(--perfect-shadow);
+}
+
+@utility card-padding {
+  padding: var(--card-padding);
+}
+
+/*  Main container */
+.wrapper {
+  display: grid;
+  /* min-height: 100dvh; */
+  grid-template-columns:
+    1rem
+    1fr
+    1rem;
+  /* grid-template-rows: auto 1fr 100px; */
+}
+
+@media (width >= 768px) {
+  .wrapper {
+    grid-template-columns:
+      1.5rem
+      1fr
+      1.5rem;
+  }
+}
+
+@media (width >= 1280px) {
+  .wrapper {
+    grid-template-columns:
+      1fr
+      /* calc(1280px - 64px) */
+      80rem /* 1280px */
+      1fr;
+  }
+}
+
+@media (width >= 1536px) {
+  .wrapper {
+    grid-template-columns:
+      1fr
+      96rem /* 1536px */
+      1fr;
+  }
+}
+
+.wrapper > * {
+  grid-column: 2;
+}
+
+.full-bleed {
+  width: 100%;
+  grid-column: 1 / 4;
+}
+
+/* Scroll bar hidden */
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .text-trim {
+    text-box: trim-both cap alphabetic;
+  }
+}

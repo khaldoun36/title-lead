@@ -1,0 +1,36 @@
+import tailwindcss from "@tailwindcss/vite";
+
+export default defineNuxtConfig({
+  compatibilityDate: "2025-05-15",
+  future: {
+    compatibilityVersion: 4,
+  },
+  devtools: { enabled: true },
+
+  modules: [
+    "@nuxt/eslint",
+    "@nuxt/icon",
+    "@nuxt/image",
+    "@vueuse/nuxt",
+    "@nuxtjs/strapi",
+  ],
+
+  strapi: {
+    url: process.env.STRAPI_URL || "http://localhost:1337",
+    prefix: "/api",
+    version: "v5",
+  },
+  // runtimeConfig: {
+  //   public: {
+  //     strapi: {
+  //       url: process.env.STRAPI_URL || "http://localhost:1337",
+  //     },
+  //   },
+  // },
+
+  css: ["@/assets/css/main.css"],
+
+  vite: {
+    plugins: [tailwindcss()],
+  },
+});

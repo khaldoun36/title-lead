@@ -1,0 +1,9 @@
+diff --git a/dist/runtime/composables/useStrapiClient.js b/dist/runtime/composables/useStrapiClient.js
+index 71ea8b99da5368c8a388b29c14d51502a0831d1e..18456eff4656421cc09fb667dcbd1cc1313df801 100644
+--- a/dist/runtime/composables/useStrapiClient.js
++++ b/dist/runtime/composables/useStrapiClient.js
+@@ -1,3 +1,4 @@
++// change
+ import { stringify } from "qs";
+ import { useStrapiUrl } from "./useStrapiUrl.js";
+ import { useStrapiVersion } from "./useStrapiVersion.js";
