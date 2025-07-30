@@ -9,8 +9,10 @@
         :src="thumbnail"
         class="absolute inset-0 h-full w-full object-cover transition-transform group-hover:scale-110"
         format="avif"
+        :alt="`View  of ${title}`"
       />
     </div>
+
     <p
       class="label-md bg-primary/80 rounded-base mt-[var(--card-padding)] max-w-fit px-2 py-1 text-white backdrop-blur-2xl"
     >
@@ -18,29 +20,27 @@
     </p>
 
     <NuxtLink
-      to="/contact-us"
+      :to="`/properties/${documentId}`"
       class="title-lg text-primary-text mt-[var(--card-padding)] inline-block"
     >
-      <span>{{ title.substring(0, 28) }}</span>
+      <span>{{ truncatedTitle }}</span>
       <span class="absolute inset-0" />
     </NuxtLink>
+
     <p class="mt-[calc(var(--card-padding)/2)] flex items-center gap-4">
       <span class="label-lg text-trim">{{ location }}</span>
     </p>
+
     <div class="mt-[calc(var(--card-padding)*2)] grid grid-cols-3 gap-8">
       <p class="grid grid-cols-[1.5rem_1fr] place-items-center gap-2">
         <DirhamIcon class="fill-primary-text size-6" />
         <span class="label-lg text-trim text-primary-text">{{
-          formatCurrency(price)
+          formattedPrice
         }}</span>
       </p>
       <p class="flex items-center justify-center gap-2">
         <Icon name="lucide:bed" size="24px" />
-        <span v-if="propertyType !== 'Studio'" class="label-lg text-trim">{{
-          numberOfBedrooms
-        }}</span>
-
-        <span v-else class="label-lg text-trim">Studio</span>
+        <span class="label-lg text-trim">{{ bedroomText }}</span>
       </p>
       <p class="flex items-center justify-center gap-2">
         <Icon name="lucide:bath" size="24px" />
@@ -51,49 +51,32 @@
 </template>
 
 <script setup>
+import { computed } from "vue";
 import DirhamIcon from "~/components/DirhamIcon.vue";
 
+// Props
+const props = defineProps({
+  title: { type: String, required: true },
+  location: { type: String, required: true },
+  listingType: { type: String, required: true },
+  propertyType: { type: String, required: true },
+  thumbnail: { type: String, required: true },
+  price: { type: Number, required: true },
+  numberOfBedrooms: { type: Number, required: true },
+  numberOfBathrooms: { type: Number, required: true },
+  documentId: { type: String, required: true },
+});
+
+// Helper Functions
 const formatCurrency = (value) => {
-  if (typeof value !== "number") return value; // Return original value if not a number
-  // 'en-US' uses commas as separators. You can change this for other locales.
+  if (typeof value !== "number") return value;
   return new Intl.NumberFormat("en-US").format(value);
 };
 
-// eslint-disable-next-line no-unused-vars
-const props = defineProps({
-  title: {
-    type: String,
-    required: true,
-  },
-  location: {
-    type: String,
-    required: true,
-  },
-  listingType: {
-    type: String,
-    required: true,
-  },
-  propertyType: {
-    type: String,
-    required: true,
-  },
-  thumbnail: {
-    type: String,
-    required: true,
-  },
-  price: {
-    type: Number,
-    required: true,
-  },
-  numberOfBedrooms: {
-    type: Number,
-    required: true,
-  },
-  numberOfBathrooms: {
-    type: Number,
-    required: true,
-  },
-});
+// Computed Properties
+const truncatedTitle = computed(() => props.title.substring(0, 28));
+const formattedPrice = computed(() => formatCurrency(props.price));
+const bedroomText = computed(() =>
+  props.propertyType === "Studio" ? "Studio" : props.numberOfBedrooms,
+);
 </script>
-
-<style scoped></style>

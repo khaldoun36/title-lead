@@ -6,6 +6,7 @@
       <PropertyCard
         v-for="property in properties"
         :key="property.documentId"
+        :document-id="property.documentId"
         :title="property.title"
         :location="property.location"
         :listing-type="property.listingType"

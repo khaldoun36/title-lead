@@ -1,7 +1,7 @@
 <template>
   <div class="mt-20 grid gap-8 md:mt-24 xl:mt-32 xl:grid-cols-[1fr_1.25fr]">
     <main>
-      <h1 class="title-xl md:title-2xl xl:title-3xl">
+      <h1 class="title-xl md:title-2xl 2xl:title-3xl !font-semibold">
         Sell, Buy, or Rent with Title Lead
       </h1>
       <p class="paragraph-md mt-4">

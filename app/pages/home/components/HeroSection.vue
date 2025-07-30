@@ -10,7 +10,7 @@
       height="4296"
     />
     <div class="relative z-1 mt-20 space-y-8 md:mt-24 xl:mt-64">
-      <h1 class="title-xl md:title-2xl xl:title-3xl">
+      <h1 class="title-xl md:title-2xl 2xl:title-3xl !font-semibold">
         Your Hassle-Free Path to Buying, Selling, and Renting in Dubai
       </h1>
 

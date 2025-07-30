@@ -8,7 +8,9 @@
     "
   >
     <div class="flex items-center justify-between py-[var(--card-padding)]">
-      <h1>Title Lead</h1>
+      <NuxtLink to="/">
+        <h1>Title Lead</h1>
+      </NuxtLink>
       <div class="grid grid-cols-2 gap-4">
         <SecondaryButton
           href="/contact-us"
