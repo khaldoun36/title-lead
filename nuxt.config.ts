@@ -16,17 +16,12 @@ export default defineNuxtConfig({
   ],
 
   strapi: {
-    url: process.env.STRAPI_URL || "http://localhost:1337",
+    url:
+      process.env.STRAPI_URL ||
+      "https://attractive-trust-fd0dbc016d.strapiapp.com",
     prefix: "/api",
     version: "v5",
   },
-  // runtimeConfig: {
-  //   public: {
-  //     strapi: {
-  //       url: process.env.STRAPI_URL || "http://localhost:1337",
-  //     },
-  //   },
-  // },
 
   css: ["@/assets/css/main.css"],
 

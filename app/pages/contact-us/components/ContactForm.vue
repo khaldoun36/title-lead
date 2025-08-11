@@ -48,6 +48,7 @@
       class="grid-cols-3"
     />
     <FormInput
+      v-if="selectedHelpOption !== 'sell'"
       v-model="budget"
       label="Budget"
       placeholder="1,000,000 AED"
@@ -67,6 +68,12 @@
       placeholder="+971 50 000 0000"
       type="text"
       :required="true"
+    />
+    <FormInput
+      v-model="email"
+      label="Your email"
+      placeholder="mohammed@yahoo.com"
+      type="email"
     />
     <FormMessage
       v-model="message"
@@ -93,6 +100,7 @@ const budget = ref(null);
 const name = ref(null);
 const phoneNumber = ref(null);
 const message = ref(null);
+const email = ref(null);
 
 const helpOptions = [
   { value: "sell", label: "Sell" },
