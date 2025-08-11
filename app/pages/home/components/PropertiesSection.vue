@@ -14,7 +14,7 @@
         :price="Number(property.price)"
         :number-of-bathrooms="Number(property.numberOfBathrooms)"
         :number-of-bedrooms="Number(property.numberOfBedrooms)"
-        :thumbnail="useStrapiMedia(property.thumbnail.url)"
+        :thumbnail="property.thumbnail.url"
       />
     </div>
   </section>

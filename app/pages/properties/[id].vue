@@ -73,7 +73,7 @@
         class="rounded-base relative aspect-[5/3] h-auto w-full overflow-clip shadow-xs"
       >
         <NuxtImg
-          :src="useStrapiMedia(image.url)"
+          :src="image.url"
           :alt="`View ${index + 1} of ${property.data.title}`"
           class="absolute inset-0 min-h-full min-w-full object-cover"
           :width="image.width"

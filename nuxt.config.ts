@@ -22,6 +22,11 @@ export default defineNuxtConfig({
     prefix: "/api",
     version: "v5",
   },
+  image: {
+    strapi: {
+      baseURL: "https://attractive-trust-fd0dbc016d.strapiapp.com",
+    },
+  },
 
   css: ["@/assets/css/main.css"],
 
